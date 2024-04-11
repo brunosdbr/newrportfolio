@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins";
+}
+
+body{
+  background-color: #212121;
+  
+}
+main{
+  height: 100vh;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.menu{
+  /*margin: 1rem;
+  display: flex;
+  justify-content: space-between;*/
+
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: transparent;
+  align-items: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+a {
+  color: rgb(255, 255, 255);
+}
+/*-----------menu com efeito tilt-------------*/
+.container-logo{
+  max-width: 100px;
+  padding: 20px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+.container-logo img.menu-logo{
+  transition: .5s;
+}
+.container-logo:hover{
+  border-radius: 50%;
+  border-right: solid #93ff89;
+}
+.container-logo:hover img.menu-logo{
+  transform: translate3d(0,0,50px);
+
+}
+.menu-logo{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.menu-opcoes{
+  max-width: 100vw;
+  display: flex;
+  gap: 2rem;
+  text-transform: uppercase;
+}
+.menu-opcoes li{
+  display: flex;
+  align-items: center;
+}
+/*animação com efeito de linha dinâmica a baixo do menu opções*/
+.menu-opcoes li a{
+  position: relative;
+}
+.menu-opcoes li a::after{
+  content: " ";
+  width: 0%;
+  height: 2px;
+  background-color: rgb(68, 199, 96);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.4s ease-in-out;
+}
+.menu a:hover::after{
+  width: 100%;
+}
+
+/*-------menu redes sociais------*/
+
+.container-animation{
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.menu-sociais{
+  position: relative;
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-sociais li{
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  transition: .2s;
+}
+span{
+  position: absolute;
+}
+.menu-sociais li:hover{
+  width: 180px;
+  border-radius: 60px;
+  cursor: pointer;
+  
+}
+.icon{
+  color: #ccc;
+  font-size: 1em;
+  transition-delay: .2s;
+}
+.text{
+  color: var(--cor4);
+  font-size: 18px;
+  transform: scale(0);
+  transition: .2s;
+  transition-delay: .1s;
+}
+.menu-sociais li:hover .text{
+  transform: scale(1);
+}
+.menu-sociais li:hover .icon{
+  transform: scale(0);
+}
+
+.menu-sociais li::before{
+  content: ' ';
+  position: absolute;
+  background-image: linear-gradient(45deg, var(--cor1), var(--cor2));
+  inset: 0;
+  opacity: 0;
+  border-radius: 60px;
+}
+
+.menu-sociais li:hover::before{
+  opacity: 1;
+}
+
+/*-----------------features----------------*/
+
+.features{
+  height: 100%;
+  background: #84ec9a;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+
+}
+
+/*--------------texto animado--------------*/
+
+main{
+  display: grid;
+  grid-template-columns: repeat(1fr, 2fr);
+}
+
+.txt-animado{
+  
+  font-size: 45px;
+  font-weight: 300;
+}
+.txt-animado span{
+  position: relative;
+}
+.txt-animado span::before{
+  content: " ";
+  color:  #44c760;
+  animation: palavras 20s infinite;
+}
+.txt-animado span::after{
+  content: " ";
+  position: absolute;
+  height: 100%;
+  border-left: 2px solid #44c760;
+  right: -10px;
+  animation: cursor .8s infinite, digita 20s steps(15) infinite;
+  width: calc(100% + 18px);
+  background-color: #212121;
+}
+
+@keyframes palavras {
+  0%,20%{
+    content: "Desenvolvedor";
+  }
+  21%,40%{
+    content: "UI/UX Design";
+  }
+  41%,60%{
+    content: "Programador";
+  }
+  61%,80%{
+    content: "Freelancer";
+  }
+  81%,100%{
+    content: "Estudante";
+  }
+}
+@keyframes cursor {
+  0%{
+    border-left: 2px solid #44c760;
+  }
+}
+
+@keyframes digita {
+  10%,20%,30%,35%,50%,55%,70%,75%,90%,95%{
+    width: 0;
+  }
+  5%,20%,25%,40%,45%,60%,65%,80%,85%{
+    width: calc(100% + 18px);
+  }
+}
+
+
+
+
+/*----------------medias query--------------*/
+
+
+@media (max-width: 620px){
+  .menu{
+    background: #309e25;
+    visibility: hidden;
+  }
+
+  .hamburg{
+   display: none;
+  }
+}
